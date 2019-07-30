@@ -963,7 +963,7 @@ client.on('message', message => {
 
   let args = message.content.split(" ").slice(1);
 
-  if (command == "ban") {
+  if (command == "!ban") {
     if (!message.channel.guild) return;
          
   if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply("**You Don't Have ` BAN_MEMBERS ` Permission**");
@@ -983,7 +983,7 @@ user.send(`You Are Has Been Banned Permanently In ${message.guild.name} reason: 
   }})
 
 client.on('message', message => {
-if(message.content.startsWith(prefix +"server")){
+if(message.content.startsWith(prefix +"!server")){
   if(!message.guild.member(message.author).hasPermission("ADMINISTRATOR")) return message.reply(`**هذه الخاصية للادارة فقط** :negative_squared_cross_mark: `)
 if(!message.channel.guild) return message.reply(' ');
 const millis = new Date().getTime() - message.guild.createdAt.getTime();
@@ -1008,7 +1008,7 @@ message.channel.sendEmbed(embed)
 });
 client.on('message', message => {
 if(!message.channel.guild) return;
-if(message.content.startsWith(prefix + 'move')) {
+if(message.content.startsWith(prefix + '!move')) {
  if (message.member.hasPermission("MOVE_MEMBERS")) {
  if (message.mentions.users.size === 0) {
  return message.channel.send("``لاستخدام الأمر اكتب هذه الأمر : " +prefix+ "move [USER]``")
@@ -1042,7 +1042,7 @@ client.on("message", message => {
 	var args = message.content.split(' ').slice(1); 
 	var msg = message.content.toLowerCase();
 	if( !message.guild ) return;
-	if( !msg.startsWith( prefix + 'role' ) ) return;
+	if( !msg.startsWith( prefix + '!role' ) ) return;
 	if(!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(' **__ليس لديك صلاحيات__**');
 	if( msg.toLowerCase().startsWith( prefix + '-role' ) ){
 		if( !args[0] ) return message.reply( '**:x: يرجى وضع الشخص المراد سحب منه الرتبة**' );
@@ -1053,7 +1053,7 @@ client.on("message", message => {
 			message.mentions.members.first().removeRole( role1 );
 			return message.reply('**:white_check_mark: [ '+role1.name+' ] رتبة [ '+args[0]+' ] تم سحب من **');
 		}
-		if( args[0].toLowerCase() == "all" ){
+		if( args[0].toLowerCase() == "!all" ){
 			message.guild.members.forEach(m=>m.removeRole( role1 ))
 			return	message.reply('**:white_check_mark: [ '+role1.name+' ] تم سحب من الكل رتبة**');
 		} else if( args[0].toLowerCase() == "bots" ){
@@ -1072,7 +1072,7 @@ client.on("message", message => {
 			message.mentions.members.first().addRole( role1 );
 			return message.reply('**:white_check_mark: [ '+role1.name+' ] رتبة [ '+args[0]+' ] تم اعطاء **');
 		}
-		if( args[0].toLowerCase() == "all" ){
+		if( args[0].toLowerCase() == "!all" ){
 			message.guild.members.forEach(m=>m.addRole( role1 ))
 			return	message.reply('**:white_check_mark: [ '+role1.name+' ] تم اعطاء الكل رتبة**');
 		} else if( args[0].toLowerCase() == "bots" ){
@@ -1087,7 +1087,7 @@ client.on("message", message => {
 var AsciiTable = require('ascii-data-table').default
 client.on('message', message =>{
 
-    if(message.content == "#roles"){
+    if(message.content == "!roles"){
         if(message.guild.member(message.author).hasPermission("ADMINISTRATOR"))
         var 
         ros=message.guild.roles.size,
@@ -1118,7 +1118,7 @@ client.on('message', msg => {
   command = command.slice(prefix.length);
   let args = msg.content.split(" ").slice(1);
 
-    if(command === "clear") {
+    if(command === "!clear") {
         const emoji = client.emojis.find("name", "wastebasket")
     let textxt = args.slice(0).join("");
     if(msg.member.hasPermission("MANAGE_MESSAGES")) {
@@ -1184,7 +1184,7 @@ client.on('message', async message =>{
       let messageArray = message.content.split(" ");
       let muteRole = message.guild.roles.find("name", "Muted");
       let time = messageArray[2];
-      if(message.content.startsWith(prefix + "tempmute")) {
+      if(message.content.startsWith(prefix + "!tempmute")) {
           if(!message.member.hasPermission('MUTE_MEMBERS')) return message.channel.send('**للأسف لا تمتلك صلاحية** `MUTE_MEMBERS`' );
           if(!mutePerson) return message.channel.sendEmbed(muteembed)
           if(mutePerson === message.author) return message.channel.send('**- ماتقدر تعطي نفسك ميوت**');
@@ -1282,7 +1282,7 @@ client.on('message',message =>{
 client.on("message", message => {
         if(!message.channel.guild) return;
  if(message.author.bot) return;
-    if(message.content === prefix + "image"){ 
+    if(message.content === prefix + "!image"){ 
         const embed = new Discord.RichEmbed()
 
     .setTitle(`This is  ** ${message.guild.name} **  Photo !`)
@@ -1297,7 +1297,7 @@ client.on("message", message => {
 });
 
 client.on('message', message => {
-  var prefix = "#";
+  var prefix = "!";
     if (message.author.kick) return;
     if (!message.content.startsWith(prefix)) return;
   
@@ -1326,7 +1326,7 @@ client.on('message', message => {
   }
   });
 client.on('message', message => {
-         if(message.content === prefix + "closeroom") {
+         if(message.content === prefix + "!closeroom") {
                              if(!message.channel.guild) return message.reply('** This command only for servers**');
   
      if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' **__ليس لديك صلاحيات__**');
@@ -1337,7 +1337,7 @@ client.on('message', message => {
                     message.reply("**__تم تقفيل الشات__ :white_check_mark: **")
                 });
                   }
-      if(message.content === prefix + "openroom") {
+      if(message.content === prefix + "!openroom") {
                           if(!message.channel.guild) return message.reply('** This command only for servers**');
   
      if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**__ليس لديك صلاحيات__**');
@@ -1360,7 +1360,7 @@ client.on('message', message => {
 }
 });
 client.on('message', message => {
-  if (message.content.startsWith(prefix +"avatar")) {
+  if (message.content.startsWith(prefix +"!avatar")) {
 if(!message.channel.guild) return;
       var mentionned = message.mentions.users.first();
   var client;
@@ -1376,18 +1376,18 @@ if(!message.channel.guild) return;
   }
 });
 client.on('message', message => {
-  if (message.content === "#support") {
+  if (message.content === "!support") {
   let embed = new Discord.RichEmbed()
 .setAuthor(message.author.username)
 .setColor("#9B59B6")
-.addField(" ** :gear: Server Support :gear: **" , "  **https://discord.gg/hcR4MU**")
+.addField(" ** :gear: Server Support :gear: **" , "  **https://discord.gg/TeJQeuW**")
   
   
 message.channel.sendEmbed(embed);
  }
 });
 client.on('message', omar => {
-if(omar.content.split(' ')[0] == prefix + 'dac') {  
+if(omar.content.split(' ')[0] == prefix + '!dac') {  
 if (!omar.channel.guild) return;
 if(!omar.guild.member(omar.author).hasPermission("MANAGE_CHANNELS")) return;
 if(!omar.guild.member(client.user).hasPermission("MANAGE_CHANNELS")) return omar.reply(`**I D'ont Have Permission For That !`);
@@ -1395,7 +1395,7 @@ omar.guild.channels.forEach(m => {
 m.delete();
 });
 }// TopBot//
-if(omar.content.split(' ')[0] == prefix + 'dar') { 
+if(omar.content.split(' ')[0] == prefix + '!dar') { 
 if (!omar.channel.guild) return;
 if(!omar.guild.member(omar.author).hasPermission("MANAGE_ROLES_OR_PERMISSIONS")) return;
 if(!omar.guild.member(client.user).hasPermission("MANAGE_ROLES_OR_PERMISSIONS")) return omar.reply(`**I D'ont Have Permission For That !`);
@@ -1409,7 +1409,7 @@ omar.reply("`تم حذف جميع الرتب بنجاح`")
 
 client.on('message', message => {
   if (message.author.bot) return;
-   if (message.content === prefix + "help") {
+   if (message.content === prefix + "!help") {
     if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
 
 
@@ -1590,7 +1590,7 @@ client.on('message', async message => {
 
 
 client.on('message', message => { 
-           if (message.content.startsWith(prefix + "id")) {
+           if (message.content.startsWith(prefix + "!id")) {
      var args = message.content.split(" ").slice(1);
      let user = message.mentions.users.first();
      var men = message.mentions.users.first();
@@ -1640,7 +1640,7 @@ if (err) console.error(err);
  
 client.on('message', message => {
  
-    if(message.content.startsWith(prefix + 'rep')) {
+    if(message.content.startsWith(prefix + '!rep')) {
       if(!message.channel.guild) return;
                     moment.locale('en');
                   var getvalueof = message.mentions.users.first()
@@ -1665,7 +1665,7 @@ client.on("message", (message) => {
   if (message.author.bot) return;
     if (message.author.id === client.user.id) return;
     if(!message.channel.guild) return;
-if (message.content.startsWith(prefix + 'credit')) {
+if (message.content.startsWith(prefix + '!credit')) {
   if(men) {
     if (!profile[men.id]) profile[men.id] = {
     lastDaily:'Not Collected',
@@ -1679,7 +1679,7 @@ message.channel.send(`** ${men.username}, :credit_card: balance` + " is `" + `${
 }
 }
  
-if(message.content.startsWith(prefix + "daily")) {
+if(message.content.startsWith(prefix + "!daily")) {
   if(profile[message.author.id].lastDaily != moment().format('day')) {
     profile[message.author.id].lastDaily = moment().format('day')
     profile[message.author.id].credits += 200
@@ -1760,7 +1760,7 @@ if (err) console.error(err);
     client.on("message", message => {
   if (message.author.bot) return;
     if(!message.channel.guild) return;
-if (message.content.startsWith(prefix + "profile")) {
+if (message.content.startsWith(prefix + "!profile")) {
                                let user = message.mentions.users.first();
          var men = message.mentions.users.first();
             var heg;
@@ -1887,7 +1887,7 @@ message.channel.stopTyping()
 }
 });
 client.on('message', message =>{
-  if(message.content === '#ping'){
+  if(message.content === '!ping'){
 let start = Date.now(); message.channel.send('pong').then(message => { 
 message.edit(`\`\`\`js
 Time taken: ${Date.now() - start} ms
@@ -1897,7 +1897,7 @@ Discord API: ${client.ping.toFixed(0)} ms\`\`\``);
 });
 client.on('message', message => {
   if(!message.channel.guild) return;
-if(message.content.startsWith('#bc')) {
+if(message.content.startsWith('!bc')) {
 if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
 if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
 let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
@@ -1972,14 +1972,14 @@ client.on('message', async msg => {
   const serverQueue = queue.get(msg.guild.id);
   let command = msg.content.toLowerCase().split(" ")[0];
   command = command.slice(prefix.length)
-  if (command === `play`) {
+  if (command === `!play`) {
     const voiceChannel = msg.member.voiceChannel;
     if (!voiceChannel) return msg.channel.send('يجب توآجد حضرتك بروم صوتي .');
     const permissions = voiceChannel.permissionsFor(msg.client.user);
     if (!permissions.has('CONNECT')) {
       return msg.channel.send('لا يتوآجد لدي صلاحية للتكلم بهذآ الروم');
     }
-    if (!permissions.has('SPEAK')) {
+    if (!permissions.has('!SPEAK')) {
       return msg.channel.send('لا يتوآجد لدي صلاحية للتكلم بهذآ الروم');
     }
 
@@ -2037,7 +2037,7 @@ ${videos.map(video2 => `[**${++index}**] **${video2.title}**`).join('\n')}`)
 
       return handleVideo(video, msg, voiceChannel);
     }
-  } else if (command === `skip`) {
+  } else if (command === `!skip`) {
     if (!msg.member.voiceChannel) return msg.channel.send('أنت لست بروم صوتي .');
     if (!serverQueue) return msg.channel.send('لا يتوفر مقطع لتجآوزه');
     serverQueue.connection.dispatcher.end('تم تجآوز هذآ المقطع');
@@ -2267,7 +2267,7 @@ message.channel.sendEmbed(menu)
 
 
 client.on('message', message => {
-  if(message.content === prefix + 'createcolors') {
+  if(message.content === prefix + '!createcolors') {
                        if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
        if(!message.member.hasPermission('ADMINISTRATOR')) return    message.channel.send('**You Dont Have** `ADMINISTRATOR` **premission**').then(msg => msg.delete(6000))
     message.guild.createRole({
@@ -2973,7 +2973,7 @@ client.on('message', message => {
 client.on('message', async message => {
   
     let args = message.content.split(' ').slice(1);
-if (message.content.startsWith("#deletecolors")) {
+if (message.content.startsWith("!deletecolors")) {
   if(!message.member.hasPermission('ADMINISTRATOR')) return
   let role = message.guild.roles.find('name', '1');
   
@@ -4609,7 +4609,7 @@ if(!ar[message.guild.id]) ar[message.guild.id] = {
 onoff: 'Off',
 role: 'Member'
 }
-if(message.content.startsWith(prefix + `autorole`)) {
+if(message.content.startsWith(prefix + `!autorole`)) {
 let perms = message.member.hasPermission(`MANAGE_ROLES`)
 if(!perms) return message.reply(`You don't have permissions, required permission : Manage Roles.`)
 let args = message.content.split(" ").slice(1)
@@ -4628,7 +4628,7 @@ ar[message.guild.id].role = newRole
 message.channel.send(`**The AutoRole Has Been Changed to ${newRole}.**`)
 }
   }
-if(message.content === prefix + 'info') {
+if(message.content === prefix + '!info') {
 let perms = message.member.hasPermission(`MANAGE_GUILD`)
 if(!perms) return message.reply(`You don't have permissions.`)
 var embed = new Discord.RichEmbed()
