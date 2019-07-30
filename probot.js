@@ -1496,7 +1496,7 @@ if(message.content.startsWith(prefix  +  'warn'))  {
 .addField('**-  Reason:**',  `[${reason}]`,  true)
 .addField("**-  Warned  in:**",`[${message.channel.name}]`)
 .addField("**-  Time & Date:**",`[${message.createdAt}]`)
-.setFooter("Probot")
+.setFooter("Silver")
 .setColor('#060c37')
 let incidentchannel = message.guild.channels.find(`name`, "warns");
 if(!incidentchannel) return message.channel.send("Can't find warns channel.");
@@ -1613,7 +1613,7 @@ client.on('message', message => {
     .setColor("#707070")
     .addField(': دخولك لديسكورد قبل', `${moment(heg.createdTimestamp).format('YYYY/M/D HH:mm:ss')} **\n** \`${moment(heg.createdTimestamp).fromNow()}\`` ,true) 
     .addField(': انضمامك لسيرفر قبل', `${moment(h.joinedAt).format('YYYY/M/D HH:mm:ss')} \n \`${moment(h.joinedAt).fromNow()}\``, true)               
-    .setFooter(`Probot`, 'https://images-ext-2.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif')                                 
+    .setFooter(`Silver`, 'https://images-ext-2.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif')                                 
     .setThumbnail(heg.avatarURL);
     message.channel.send(id)
 }       });
