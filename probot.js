@@ -247,7 +247,7 @@ if (err) console.error(err);
     client.on("message", message => {
   if (message.author.bot) return;
     if(!message.channel.guild) return;
-if (message.content.startsWith(prefix + "!rank")) {
+if (message.content.startsWith(prefix + "!erorrrrrrrr")) {
                                let user = message.mentions.users.first();
          var human = message.mentions.users.first();
             var author;
@@ -361,7 +361,7 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
-  if(message.content.startsWith(prefix + '!role')) {
+  if(message.content.startsWith(prefix + 'role')) {
       if(!message.member.hasPermission('MANAGE_ROLES')) return
     let role = new Discord.RichEmbed()
   .setDescription(`
@@ -381,8 +381,8 @@ message.channel.sendEmbed(role)
   
 
 client.on('message' , async (message) => {
-  var prefix = "#"
-      if(message.content.startsWith(prefix + "!topinvites")) {
+  var prefix = "!"
+      if(message.content.startsWith(prefix + "topinvites")) {
   if(message.author.bot) return;
   if(!message.channel.guild) return message.reply(' Error : \` Server Command \`');
     var invites = await message.guild.fetchInvites();
