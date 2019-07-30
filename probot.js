@@ -4,7 +4,7 @@ const fs = require("fs");
 const dateFormat = require('dateformat');
 const client = new Discord.Client(); 
 const Canvas = require("canvas"); 
-const prefix = "#"
+const prefix = "!"
 const id = JSON.parse(fs.readFileSync("./id/rank.json", "utf8"));
 
 let banse = new Set();
@@ -247,7 +247,7 @@ if (err) console.error(err);
     client.on("message", message => {
   if (message.author.bot) return;
     if(!message.channel.guild) return;
-if (message.content.startsWith(prefix + "rank")) {
+if (message.content.startsWith(prefix + "!rank")) {
                                let user = message.mentions.users.first();
          var human = message.mentions.users.first();
             var author;
@@ -361,7 +361,7 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
-  if(message.content.startsWith(prefix + 'hrole')) {
+  if(message.content.startsWith(prefix + '!role')) {
       if(!message.member.hasPermission('MANAGE_ROLES')) return
     let role = new Discord.RichEmbed()
   .setDescription(`
@@ -382,7 +382,7 @@ message.channel.sendEmbed(role)
 
 client.on('message' , async (message) => {
   var prefix = "#"
-      if(message.content.startsWith(prefix + "topinvites")) {
+      if(message.content.startsWith(prefix + "!topinvites")) {
   if(message.author.bot) return;
   if(!message.channel.guild) return message.reply(' Error : \` Server Command \`');
     var invites = await message.guild.fetchInvites();
