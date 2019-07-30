@@ -4739,7 +4739,7 @@ client.on("guildMemberAdd", member => {
 
     })
 
-    const devs = ['489342754887827487'];
+    const devs = ['358966532308729863'];
 
 client.on('message', message => {
     let argresult = message.content.split(` `).slice(1).join(' ');
@@ -4764,7 +4764,7 @@ client.on('message', message => {
         client.user.setAvatar(argresult);
 
 
-      } else if(message.content.startsWith(prefix + 'setStatus')) {
+      } else if(message.content.startsWith(prefix + '!setStatus')) {
         if(!argresult) return message.channel.send('`online`, `DND(Do not Distrub),` `idle`, `invisible(Offline)` :notes: أختر أحد الحالات');
         client.user.setStatus(argresult);
 
