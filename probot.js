@@ -963,7 +963,7 @@ client.on('message', message => {
 
   let args = message.content.split(" ").slice(1);
 
-  if (command == "!ban") {
+  if (command == "ban") {
     if (!message.channel.guild) return;
          
   if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply("**You Don't Have ` BAN_MEMBERS ` Permission**");
@@ -1590,7 +1590,7 @@ client.on('message', async message => {
 
 
 client.on('message', message => { 
-           if (message.content.startsWith(prefix + "!id")) {
+           if (message.content.startsWith(prefix + "id")) {
      var args = message.content.split(" ").slice(1);
      let user = message.mentions.users.first();
      var men = message.mentions.users.first();
