@@ -1087,7 +1087,7 @@ client.on("message", message => {
 var AsciiTable = require('ascii-data-table').default
 client.on('message', message =>{
 
-    if(message.content == "!roles"){
+    if(message.content == "roles"){
         if(message.guild.member(message.author).hasPermission("ADMINISTRATOR"))
         var 
         ros=message.guild.roles.size,
@@ -1972,7 +1972,7 @@ client.on('message', async msg => {
   const serverQueue = queue.get(msg.guild.id);
   let command = msg.content.toLowerCase().split(" ")[0];
   command = command.slice(prefix.length)
-  if (command === `play`) {
+  if (command === `!play`) {
     const voiceChannel = msg.member.voiceChannel;
     if (!voiceChannel) return msg.channel.send('يجب توآجد حضرتك بروم صوتي .');
     const permissions = voiceChannel.permissionsFor(msg.client.user);
